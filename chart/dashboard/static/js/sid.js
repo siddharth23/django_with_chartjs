@@ -38,6 +38,7 @@ var myChart = new Chart(ctx, {
     }
 });
 }
+
 function display_chart(){
 $.ajax({
             type: 'GET',
@@ -52,4 +53,12 @@ $.ajax({
             }
         });
 }
-display_chart()
+
+var i = 0, howManyTimes = 10;
+function f() {
+    display_chart();
+    if( i < howManyTimes ){
+        setTimeout( f, 7000 );
+    }
+}
+f();
